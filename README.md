@@ -6,35 +6,20 @@
 
 ### 🎥팀명 : 무빙
 
-→ (movie + bing = mobing) 빙 검색처럼 영화계를 선도하겠다
-
-<table align=center>
-<tbody>
-<tr>
-<td align=center><b>김영서</b></td>
-<td align=center><b>유지은</b></td>
-<td align=center><b>전성원</b></td>
-<td align=center><b>허정윤</b></td>
-</tr>
-
-<tr>
-<td><a href="https://github.com/youngseo98"><div align=center>@youngseo98</div></a></td>
-<td><a href="https://github.com/yujitaeng"><div align=center>@yujitaeng</div></a></td>
-
-<td><a href="https://github.com/Hack012"><div align=center>@Hack012</div></a></td>
-
-<td><a href="https://github.com/devunis"><div align=center>@devunis</div></a></td>
-</tr>
-</tbody>
-</table>
-
+- "movie + bing = mobing"  영화계의 Bing(Microsoft Bing Search)
+- 프로젝트 기간: 2025.01.15 ~ 01.21
+- 팀원: 
+<a href="https://github.com/youngseo98">김영서</a>, 
+<a href="https://github.com/yujitaeng">유지은</a>, 
+<a href="https://github.com/Hack012">전성원</a>, 
+<a href="https://github.com/devunis">허정윤</a>
 <br><br><br>
 
 # 1. Introduction Project (프로젝트 개요)
 
 ### 🎥프로젝트 명
 
-무빙: 데이터 기반 영화 제작 전략 분석
+**무빙**: 데이터 기반 영화 제작 전략 분석
 
 ### 🎥프로젝트 소개
 
@@ -96,13 +81,13 @@
 
 ### :arrows_counterclockwise: Step 2: 데이터 변환
 - Duration
-  - `MPA컬럼`에 잘못들어간 데이터 처리  
-  [사진]
+  - `MPA컬럼`에 잘못 들어간 데이터 처리  
+  ![예시 이미지](./img/wrong MPA.png)
   - 시간을 분단위로 통일 및 h, m 문자열 제거 -> **수치형(float64)** 데이터로 변환  
-  [사진]
+  ![예시 이미지](./img/hm.png)
 - Votes
     - K, M 문자열 제거 -> **수치형(float64)** 데이터로 변환  
-  [사진]
+  ![예시 이미지](./img/KM.png)
 
 ### :o: Step 3: 결측치 대체
 - 수익 관련 데이터 결측치 처리: **0으로 대체**
@@ -130,7 +115,23 @@
   - Votes
  
 ##### [번외] Rating과 Votes의 결측치 Insight
+i) 0과 평균값으로 Rating과 Votes를 채웠을 때 그래프  
+![예시 이미지](./img/1st_outlier.png)  
+![예시 이미지](./img/1st_outlier2.png)   
+ii) 균등한 데이터 사용을 위해 이상치를 제거하고자 함 : **IQR** 방식 사용  
+![예시 이미지](./img/2nd_outlier.png) 
+![예시 이미지](./img/2nd_outlier2.png)  
 
+:exclamation: 문제점: 이상치가 흥행에 성공한 영화의 값이라면 이상치 제거 후 데이터 분석 시 데이터 왜곡을 야기할 수 있음
+
+iii) 이상치가 흥행에 성공한 영화의 값을 나타내고 있다고 생각이 듬
+- 상위 10%, 하위 10%를 제외한 이상치 조정 방법 사용: **winsorize** 방식 사용  
+![예시 이미지](./img/3rd_outlier.png)
+![예시 이미지](./img/3rd_outlier2.png)
+
+:exclamation: 문제점: 기대했던 것과 다르게 하위의 이상치가 명확히 잡히지 않음, 이상치 제거와 똑같이 데이터 왜곡을 야기할 수 있음
+
+**결론**: 기존 데이터를 그대로 사용하되, 이상치의 분포가 0으로 채웠을 때와 평균값으로 채웠을 때 별반 다르지 않으므로 0으로 결측치를 대체하기로 결정
     
 ### :heavy_plus_sign: Step 4: 장르 그룹화
 - `Category 컬럼` 추가
@@ -138,59 +139,98 @@
 
 ### 최종 데이터 생김새
 - data.info()  
-[사진]
+![예시 이미지](./img/data.info().png)
 
 # 3. EDA
 
 ## :busts_in_silhouette: Persona
 
-### :bust_in_silhouette: Alex Kim
-- 직업: 영화 제작사 홍보/마케팅 팀장 (PR & Marketing Manager)
-- 목표: 시장 트렌드를 분석하여 관객들이 원하는 영화 장르와 특성을 파악하고, 투자 대비 수익성이 높은 영화 제작 아이디어를 도출하고자 함
-- 관심사
-  - 어떤 영화가 최근 트렌드에 부합하는지?
-  - 흥행 성공 요인과 관련된 데이터 패턴 발견
-  - 관객들이 선호하는 장르, 러닝타임, 배우 등 구체적인 요소 분석
-  - 영화 제작 비용 대비 수익성을 극대화할 수 있는 전략
+### :bust_in_silhouette: 김영서
+- **장르(Genres)** 별 **연도(Years)** 별 **총 세계 수익(grossWorldWide)** 시각화
+![예시 이미지](./img/ys_1.png)
 
-### :bust_in_silhouette: Rachel Park
-- 직업: 영화 제작사 스토리 개발 팀장 (Story Development Manager)
-- 목표
-  - 흥행 가능성이 높은 영화 스토리를 기획하고 개발 방향성을 제시
-  - 기존 흥행 데이터를 바탕으로 관객이 선호하는 스토리와 장르를 파악
-  - 영화 시나리오의 독창성과 시장성을 균형 있게 고려하여 성공적인 프로젝트를 기획
-- 관심사
-  - 관객들이 선호하는 스토리 요소(예: 감정, 서사, 결말 구조).
-  - 특정 장르와 스토리 템플릿이 흥행 성공에 미치는 영향.
-  - 감독, 작가, 배우의 조합이 스토리 매력에 미치는 효과 분석.
+- **주말 개봉 수익(opening_weekend_Gross)** 과 **총 세계 수익(grossWorldWide)** 의 상관관계 시각화
+![예시 이미지](./img/ys_2.png)
+![예시 이미지](./img/ys_2_1.png)
 
- ### :bust_in_silhouette: Sophia Jung
- - 직업: 영화 제작사 홍보/ 마케팅 팀장(PR & Marketing Manager)
- - 목표
-    - 영화의 흥행 가능성을 높이기 위해 효과적인 홍보 및 마케팅 캠페인을 기획.    
-    - 데이터 기반으로 타겟 관객층을 분석하고, 맞춤형 마케팅 전략을 수립.
-    - 영화 개봉 전후 온라인과 오프라인에서 관객 참여를 극대화.
-- 관심사
-  - 수익성이 높은 영화의 특징을 분석해서 마케팅 전략을 수립
-  - 수익성과 개봉일(평일 & 주말)의 관계에 따른 마케팅 전략 수립
-  - 수상 경력, 수상 후보 등 영화의 품질이 수익성에 미치는 영향
+- **연도(Years)** 별 상위 **평점(Rating)** 영화 개수
+![예시 이미지](./img/ys_3.png)
 
- ### :bust_in_silhouette: Emily Park
- - 직업: 영화 제작사 리서치 분석가 (Data Analyst)
- - 목표
-   - 데이터 기반으로 신흥 시장 및 관객 니즈를 파악하여 새로운 영화 프로젝트의 성공 가능성을 높임
-   - 과거 흥행 패턴을 분석해 제작사 내부에서 전략적인 의사결정을 지원
- - 관심사
-   - 신흥 시장에서의 흥행 가능성이 높은 영화 장르 및 요소 분석
-   - 낮은 제작비로 높은 수익을 낼 수 있는 영화 요소 탐구
-   - 지역별로 효과적인 배급 및 마케팅 전략 수집
-   - 데이터를 활용하여 영화 제작사 내부 보고서 작성 및 시각
+#### :mag: 분석 Insight
+- 트렌드 분석과 영화 수익성 파악을 위한 데이터 분석
+- 장르별로 수익 분석을 통해 연도별로 어느 장르가 많은 수익을 올렸는지 분석 후 영화의 성공적인 트랜드와 흥행 요소를 파악할 수 있다
+
+### :bust_in_silhouette: 유지은
+- **장르(Genre)** 별 **총 세계 수익(grossWorldWide)** 및 **평점(Rating)** 분석: 어떤 장르가 장 높은 흥행성과 평점을 기록하는가?
+![예시 이미지](./img/je_1.png)
+
+- **수상 이력(oscar)** 과 **흥행 (grossWorldWide)** 의 상관관계 분석: 수상 실적이 있는 영화들의 스토리적 특징과 흥행 패턴은?
+![예시 이미지](./img/je_2.png)
+
+- **평점(Rating)** - **투표수(Votes)** 관계를 통한 관객 선호도 분석: 높은 평점과 많은 투표를 받은 영화들의 공통된 특징은?
+![예시 이미지](./img/je_3.png)
+
+#### :mag: 분석 Insight
+- 흥행 가능성이 높은 영화 스토리를 기획하고 개발 방향성을 제시.
+- ROI에 맞춰 관객의 호응을 불러일으킬 영화 스토리 개발을 하고 싶다면, Epic 카테고리 위주로 영화 스토리 전략을 세워볼 수 있다.
+
+### :bust_in_silhouette: 전성원
+- 예산과 수익: **예산(budget)** vs **전세계 수익(grossWorldWide)** 과 **북미 수익(gross_US_Canada)**
+![예시 이미지](./img/sw_1.png)
+
+- 등급과 수익: **연령 제한 등급(MPA)** vs **전세계 수익(grossWorldWide)**
+- 등급 종류  
+[사진]
+
+<div>
+    <img src="./img/sw_2.png" alt="예시 이미지" width="500" style="display:inline-block;"/>
+    <img src="./img/sw_2_1.png" alt="예시 이미지" width="300" style="display:inline-block;"/>
+</div>
+
+- 영화 평점과 수익: **평점(Rating)** vs **전세계 수익(grossWorldWide)** 와 **주말 개봉 수익(opening_weekend_Gross)**
+![예시 이미지](./img/sw_3.png)
+
+- [추가분석]: **평점(Rating)** 별 / **총 수입(grossWorldWide)** 별 와 **주말 개봉 수익(opening_weekend_Gross)** 별 영화 분포도
+![예시 이미지](./img/sw_3_ex.png)
+
+    - 평점별 수익 top1 영화 변동사항 확인
+      -> 평점별 주말 개봉 수익과 총 세계 수익의 관계에서 흥행한 영화의 변동사항을 확인하기 위함
+      ![예시 이미지](./img/sw_3_ex2.png)
+      
+- **상 수상 여부(oscars)**, **수상 후보(nominations)** 와 **총 세계 수익(grossWorldWide)**
+- oscars, nominations 분포도
+![예시 이미지](./img/sw_4.png)
+
+- grossWorldWide와 oscars, nominations 상관관계
+![예시 이미지](./img/sw_4_1.png)
+
+- oscar, nomination을 고려한 산점도
+![예시 이미지](./img/sw_4_2.png)
+
+- [추가분석]: **oscar 수상(oscars)** 을 다수 한 영화 **장르(genres)**  vs **총 세계 수입(grossWorldWide)** 이 가장 많은 **장르(genres)**
+
+<div>
+    <img src="./img/sw_4_ex.png" alt="예시 이미지" width="500" style="display:inline-block;"/>
+    <img src="./img/sw_4_ex3.png" alt="예시 이미지" width="300" style="display:inline-block;"/>
+</div>
+
+- 데이터 프레임(Top5)
+![예시 이미지](./img/sw_4_ex4.png)
+
+#### :mag: 분석 Insight
+- 많은 수익을 창출하고 싶은 경우: Action 장르, 평점 7점 이상의 영화를 홍보, 고예산 영화 위주로 마케팅 전략을 세워볼 수 있다.
+- oscars 수상을 목표로 하는경우: Drama 장르의 영화를 마케팅
+
+ ### :bust_in_silhouette: 허정윤
+#### :mag: 분석 Insight
+- 저예산 영화의 경우 공포 장르가 흥행하는 부분이 높은것으로 판단된다
+- 상영시간의 경우 크게 차이가 없지만 1시간 반 에서 3시간 사이의 영화를 제작해야 한다.
 
  <br><br><br>
 
  # 4. 한줄 회고
  - :green_heart: 김영서 :  데이터가 매우 크고 다양한 특성을 가지고 있어서 EDA 과정에서 불필요한 정보가 많았습니다. 특정 변수에서 결측값이나 이상치가 많아 정리가 힘들었고, 변수간의 관계를 분석할 때 각 변수의 스케일 차이가 많았습니다. 하지만 팀원들과 함께 결측치를 미리 처리하고 전처리 절차를 하나씩 밟아가면서 필요한 데이터를 뽑은 것에 뿌듯함을 느꼈고, 다음엔 더욱 간단하고 자동화된 전처리 절차를 도입해보고 싶습니다.
-- :heart: 유지은 : 빅데이터 분석 과정에서 결측치와 이상치를 프로젝트 목표에 맞게 대체하는 방법을 학습했으며, 페르소나 가설을 설정하고 이를 바탕으로 유의미한 인사이트를 도출하는 시각화 작업을 경험했습니다. 특히, 인사이트를 효과적으로 전달하기 위해 subplot을 활용하여 연관성 있는 두 그래프를 한 화면에 배치해 결론을 보다 직관적으로 도출하는 방법을 터득했습니다. 또한, 팀원들과 코드리뷰를 하며 hue 값을 활용해 상관관계가 있는 세 가지 데이터를 한 그래프에 시각화하는 기술도 익혔습니다. 이러한 EDA 전반 과정을 직접 시도하며 분석 역량을 한 단계 높일 수 있었던 뜻깊은 시간이었습니다. 😊
+- 💙 유지은 : 빅데이터 분석 과정에서 결측치와 이상치를 프로젝트 목표에 맞게 대체하는 방법을 학습했으며, 페르소나 가설을 설정하고 이를 바탕으로 유의미한 인사이트를 도출하는 시각화 작업을 경험했습니다. 특히, 인사이트를 효과적으로 전달하기 위해 subplot을 활용하여 연관성 있는 두 그래프를 한 화면에 배치해 결론을 보다 직관적으로 도출하는 방법을 터득했습니다. 또한, 팀원들과 코드리뷰를 하며 hue 값을 활용해 상관관계가 있는 세 가지 데이터를 한 그래프에 시각화하는 기술도 익혔습니다. 이러한 EDA 전반 과정을 직접 시도하며 분석 역량을 한 단계 높일 수 있었던 뜻깊은 시간이었습니다. 😊
 - :black_heart: 전성원 :  좋은 팀원들과 함께한 덕분에 EDA를 진행할 때 분석의 시야를 넓힐 수 있었습니다. 비록 프로젝트 마감 기한이 짧아 모든 것을 완벽히 보여주지 못한 점은 아쉽지만, 이번 경험을 발판 삼아 파이썬 분석 라이브러리(numpy, pandas 등)와 시각화 그래프에 대한 정보를 보충한다면 앞으로 더욱 좋은 성과를 낼 수 있을 것이라는 자신감을 얻었습니다. 🙂
 - :purple_heart: 허정윤 : matplotlib를 사용하여 도식화를 진행하면서 Deprecated Warning이 발생하는 부분이 많이 있었습니다. 해당 Warning을 분석하고 수정해 나가면서 EDA를 완성해 나가니 프로젝트의 완성도가 더 높아지는 걸 느낄 수 있었습니다.
 영화 장르나 배우 정보 데이터들이 리터럴 배열로 들어가 있는 걸 확인했는데 해당 데이터를 replace, strip. split등의 함수를 사용하고 One-Hot Encoding 방식을 통해 (pd.get_Dummies) 정제하여 통계를 내는 부분을 잘 익힐 수 있었어요.
