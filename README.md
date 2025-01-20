@@ -96,7 +96,7 @@
     - gross_US_Canada
     - opening_weekend_Gross
 - 연령 제한 등급 관련 데이터 결측치 처리
-  - MPA : Not Rated(연령 제한 없음)으로 처리
+  - MPA : Not Rated(등급 미심사)으로 처리
 - 상영시간 관련 데이터 결측치 처리
   - Duration: 전체 상영시간의 **평균값(mean)**
 - 빈 배열인 값 결측치 처리: **Unknown [컬럼명]**
