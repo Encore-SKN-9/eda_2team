@@ -117,18 +117,18 @@
  
 ##### [번외] Rating과 Votes의 결측치 Insight
 i) 0과 평균값으로 Rating과 Votes를 채웠을 때 그래프  
+![Image](https://github.com/user-attachments/assets/d52484dc-9feb-418f-91ee-2b2bdc694b3a)
+![Image](https://github.com/user-attachments/assets/481251af-9826-47a1-946d-682e82c6dce3)
+ii) 균등한 데이터 사용을 위해 이상치를 제거하고자 함 : **IQR** 방식 사용  
 ![Image](https://github.com/user-attachments/assets/e87cd5fd-38ae-45ab-93ba-67c49fbef2c4)
 ![Image](https://github.com/user-attachments/assets/6ee2390c-9ecc-4466-a7db-41119ee7396e)
-ii) 균등한 데이터 사용을 위해 이상치를 제거하고자 함 : **IQR** 방식 사용  
-[사진]
-[사진]  
 
 :exclamation: 문제점: 이상치가 흥행에 성공한 영화의 값이라면 이상치 제거 후 데이터 분석 시 데이터 왜곡을 야기할 수 있음
 
 iii) 이상치가 흥행에 성공한 영화의 값을 나타내고 있다고 생각이 듬
 - 상위 10%, 하위 10%를 제외한 이상치 조정 방법 사용: **winsorize** 방식 사용  
-[사진]
-[사진]
+![Image](https://github.com/user-attachments/assets/433a4803-650e-4889-9c27-40752f9cf176)
+![Image](https://github.com/user-attachments/assets/f4d6a20c-af65-4553-95af-1488f3726261)
 
 :exclamation: 문제점: 기대했던 것과 다르게 하위의 이상치가 명확히 잡히지 않음, 이상치 제거와 똑같이 데이터 왜곡을 야기할 수 있음
 
@@ -140,7 +140,7 @@ iii) 이상치가 흥행에 성공한 영화의 값을 나타내고 있다고 �
 
 ### 최종 데이터 생김새
 - data.info()  
-[사진]
+<img width="1038" alt="Image" src="https://github.com/user-attachments/assets/92b5aab0-fd73-4b01-9dd0-ec6fdb7c824d" />
 
 # 3. EDA
 
