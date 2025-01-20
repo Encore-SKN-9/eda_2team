@@ -82,12 +82,13 @@
 ### :arrows_counterclockwise: Step 2: 데이터 변환
 - Duration
   - `MPA컬럼`에 잘못 들어간 데이터 처리  
-  [사진]
+  <img width="687" alt="Image" src="https://github.com/user-attachments/assets/11038981-86c8-4c20-97cc-219213295c79" />
+  
   - 시간을 분단위로 통일 및 h, m 문자열 제거 -> **수치형(float64)** 데이터로 변환  
-  [사진]
+  ![Image](https://github.com/user-attachments/assets/3570907e-7caf-4e1c-9163-08276161ec04)
 - Votes
     - K, M 문자열 제거 -> **수치형(float64)** 데이터로 변환  
-  [사진]
+  ![Image](https://github.com/user-attachments/assets/d105bb94-d501-4eec-9589-21a01b5ebd54)
 
 ### :o: Step 3: 결측치 대체
 - 수익 관련 데이터 결측치 처리: **0으로 대체**
@@ -116,8 +117,8 @@
  
 ##### [번외] Rating과 Votes의 결측치 Insight
 i) 0과 평균값으로 Rating과 Votes를 채웠을 때 그래프  
-[사진]  
-[사진]  
+![Image](https://github.com/user-attachments/assets/e87cd5fd-38ae-45ab-93ba-67c49fbef2c4)
+![Image](https://github.com/user-attachments/assets/6ee2390c-9ecc-4466-a7db-41119ee7396e)
 ii) 균등한 데이터 사용을 위해 이상치를 제거하고자 함 : **IQR** 방식 사용  
 [사진]
 [사진]  
