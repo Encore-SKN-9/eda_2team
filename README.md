@@ -194,7 +194,7 @@ iii) 이상치가 흥행에 성공한 영화의 값을 나타내고 있다고 �
 
 - 등급과 수익: **연령 제한 등급(MPA)** vs **전세계 수익(grossWorldWide)**
 - 등급 종류  
-[사진]
+![예시 이미지](./img/MPA_rank.png)
 
 <div>
     <img src="./img/sw_2.png" alt="예시 이미지" width="500" style="display:inline-block;"/>
@@ -225,7 +225,7 @@ iii) 이상치가 흥행에 성공한 영화의 값을 나타내고 있다고 �
 
 <div>
     <img src="./img/sw_4_ex.png" alt="예시 이미지" width="500" style="display:inline-block;"/>
-    <img src="./img/sw_4_ex3.png" alt="예시 이미지" width="300" style="display:inline-block;"/>
+    <img src="./img/sw_ex3.png" alt="예시 이미지" width="300" style="display:inline-block;"/>
 </div>
 
 - 데이터 프레임(Top5)
