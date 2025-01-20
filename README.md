@@ -188,6 +188,53 @@ iii) 이상치가 흥행에 성공한 영화의 값을 나타내고 있다고 �
   - 수익성과 개봉일(평일 & 주말)의 관계에 따른 마케팅 전략 수립
   - 수상 경력, 수상 후보 등 영화의 품질이 수익성에 미치는 영향
 
+- 도식화
+- 예산과 수익: **예산(budget)** vs **전세계 수익(grossWorldWide)** 과 **북미 수익(gross_US_Canada)**
+![예시 이미지](./img/sw_1.png)
+
+- 등급과 수익: **연령 제한 등급(MPA)** vs **전세계 수익(grossWorldWide)**
+- 등급 종류  
+[사진]
+
+<div>
+    <img src="./img/sw_2.png" alt="예시 이미지" width="500" style="display:inline-block;"/>
+    <img src="./img/sw_2_1.png" alt="예시 이미지" width="300" style="display:inline-block;"/>
+</div>
+
+- 영화 평점과 수익: **평점(Rating)** vs **전세계 수익(grossWorldWide)** 와 **주말 개봉 수익(opening_weekend_Gross)**
+![예시 이미지](./img/sw_3.png)
+
+- [추가분석]: **평점(Rating)** 별 / **총 수입(grossWorldWide)** 별 와 **주말 개봉 수익(opening_weekend_Gross)** 별 영화 분포도
+![예시 이미지](./img/sw_3_ex.png)
+
+    - 평점별 수익 top1 영화 변동사항 확인
+      -> 평점별 주말 개봉 수익과 총 세계 수익의 관계에서 흥행한 영화의 변동사항을 확인하기 위함
+      ![예시 이미지](./img/sw_3_ex2.png)
+      
+- **상 수상 여부(oscars)**, **수상 후보(nominations)** 와 **총 세계 수익(grossWorldWide)**
+- oscars, nominations 분포도
+![예시 이미지](./img/sw_4.png)
+
+- grossWorldWide와 oscars, nominations 상관관계
+![예시 이미지](./img/sw_4_1.png)
+
+- oscar, nomination을 고려한 산점도
+![예시 이미지](./img/sw_4_2.png)
+
+- [추가분석]: **oscar 수상(oscars)** 을 다수 한 영화 **장르(genres)**  vs **총 세계 수입(grossWorldWide)** 이 가장 많은 **장르(genres)**
+
+<div>
+    <img src="./img/sw_4_ex.png" alt="예시 이미지" width="500" style="display:inline-block;"/>
+    <img src="./img/sw_4_ex3.png" alt="예시 이미지" width="300" style="display:inline-block;"/>
+</div>
+
+- 데이터 프레임(Top5)
+![예시 이미지](./img/sw_4_ex4.png)
+
+#### :mag: 분석 Insight
+- 많은 수익을 창출하고 싶은 경우: Action 장르, 평점 7점 이상의 영화를 홍보, 고예산 영화 위주로 마케팅 전략을 세워볼 수 있다.
+- oscars 수상을 목표로 하는경우: Drama 장르의 영화를 마케팅
+
  ### :bust_in_silhouette: Emily Park
  - 직업: 영화 제작사 리서치 분석가 (Data Analyst)
  - 목표
