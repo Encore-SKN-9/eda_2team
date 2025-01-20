@@ -6,9 +6,9 @@
 
 ### 🎥팀명 : 무빙
 
-(movie + bing = mobing) 빙 검색처럼 영화계를 선도하겠다
-
-#### 팀원: 
+- "movie + bing = mobing"  영화계의 Bing(Microsoft Bing Search)
+- 프로젝트 기간: 2025.01.15 ~ 01.21
+- 팀원: 
 <a href="https://github.com/youngseo98">김영서</a>, 
 <a href="https://github.com/yujitaeng">유지은</a>, 
 <a href="https://github.com/Hack012">전성원</a>, 
@@ -19,7 +19,7 @@
 
 ### 🎥프로젝트 명
 
-무빙: 데이터 기반 영화 제작 전략 분석
+**무빙**: 데이터 기반 영화 제작 전략 분석
 
 ### 🎥프로젝트 소개
 
