@@ -224,8 +224,8 @@ iii) 이상치가 흥행에 성공한 영화의 값을 나타내고 있다고 �
 - [추가분석]: **oscar 수상(oscars)** 을 다수 한 영화 **장르(genres)**  vs **총 세계 수입(grossWorldWide)** 이 가장 많은 **장르(genres)**
 
 <div>
-    <img src="./img/sw_4_ex.png" alt="예시 이미지" width="500" style="display:inline-block;"/>
-    <img src="./img/sw_ex3.png" alt="예시 이미지" width="300" style="display:inline-block;"/>
+    <img src="./img/sw_4_ex.png" alt="예시 이미지" width="400" style="display:inline-block;"/>
+    <img src="./img/sw_ex3.png" alt="예시 이미지" width="400" style="display:inline-block;"/>
 </div>
 
 - 데이터 프레임(Top5)
