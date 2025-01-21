@@ -140,7 +140,7 @@ iii) 이상치가 흥행에 성공한 영화의 값을 나타내고 있다고 �
 
 ### 최종 데이터 생김새
 - data.info()  
-<img width="1038" alt="Image" src="https://github.com/user-attachments/assets/92b5aab0-fd73-4b01-9dd0-ec6fdb7c824d" />
+<img width="461" alt="스크린샷 2025-01-21 오전 9 24 30" src="https://github.com/user-attachments/assets/59fc61f0-fe48-4cd4-bbd6-cec59dbd72c6" />
 
 # 3. EDA
 
