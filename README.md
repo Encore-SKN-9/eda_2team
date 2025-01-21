@@ -1,4 +1,4 @@
-# SKN09-mini-2Team
+# SKN09-EDA-2Team
 
 <br>
 
